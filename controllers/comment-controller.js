@@ -36,7 +36,14 @@ const commentController = {
           { new: true }
         );
       })
-      .then(dbPizzaData);
+      .then((dbPizzaData) => {
+        if (!dbPizzaData) {
+          res.status(404).json({ message: "No pizza found with this ID!" });
+          return;
+        }
+        res.status(200).json(dbPizzaData);
+      })
+      .catch((err) => res.status(500).json(err));
   },
 };
 
