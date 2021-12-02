@@ -8,7 +8,7 @@ const CommentSchema = new Schema({
     type: String,
   },
   createdAt: {
-    type: DataTransfer,
+    type: String,
     default: Date.now,
   },
 });
